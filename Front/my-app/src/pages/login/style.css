@@ -9,14 +9,16 @@
 
 
 #login .form {
-    background-color: #f1f1f1;
+    background-color: #02000f;
     width: 100%;
     max-width: 480px;
     padding: 0.5rem;
+    border-radius: 1rem;
 }
 
 #login .field label {
-    display: block;
+    display: flex;
+    align-items: flex-start;
     
 }
 

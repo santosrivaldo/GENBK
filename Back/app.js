@@ -12,14 +12,14 @@ const rotaProdutos = require('./routes/produtos')
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended : false}));
-app.use(bodyParser.json());
+app.use(bodyParser.json());/*
 app.use((req, res, next) => {
     res.header('Acess-Control-Allow-Origin', '*');
     res.header(
         'Acces-Control-Allow-Header',
         'Origin, X-Requrested-With, Content-Type, Accept, Authezation'
     )
-})
+}) */
 
 
 app.use('/produtos', rotaProdutos);

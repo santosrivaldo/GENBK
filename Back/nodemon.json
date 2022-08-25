@@ -1,0 +1,9 @@
+{
+    "env" : {
+    "MYSQL_USER" : "root",
+    "MYSQL_PASSWORD" : "Brasil@1402",
+    "MYSQL_DATABASE" : "login",
+    "MYSQL_HOST" : "187.64.90",
+    "MYSQL_PORT" : 3306
+    }
+}
