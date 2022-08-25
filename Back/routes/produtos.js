@@ -57,13 +57,23 @@ router.post('/', (req, res, next) => {
         conn.query(
             'INSERT INTO `login`.`usuario` (`id`, `nome`, `senha`) VALUES ( ? , ? , ?);',
             [req.body.id, req.body.nome, req.body.senha],
-            (error, resultado, field) => {
+            (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }
-                res.status(200).send({
-                    mensagem: 'Produto inserido',
-                    produtoCriado: produto
-                });
+                const response ={
+                    mensagem: 'Produto inserido com sucesso',
+                    produtoCriado: {
+                        id_usuario: req.body.id,
+                        nome: req.body.nome,
+                        senha: req.body.senha,
+                        request: {
+                            tipo: 'POST',
+                            descricao: 'Insere um produto',
+                            url: 'http://localhost:3200/produtos'
+                        }
+                    } 
+                }
+                res.status(200).send({response});
             }
         )
     })
@@ -77,9 +87,9 @@ router.get('/:id_produto', (req, res, next) => {
         conn.query(
             'SELECT * FROM usuario WHERE id = ?;',
             [id],
-            (error, resultado, fields) => {
+            (error, result, fields) => {
                 if (error) { return res.status(200).send({ error: error }) }
-                return res.status(200).send({ response: resultado })
+                return res.status(200).send({ response: result })
             }
 
         )
