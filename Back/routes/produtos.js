@@ -16,9 +16,25 @@ router.get('/', (req, res, next) => {
         if (error) { return res.status(500).send({ error: error }) }
         conn.query(
             'SELECT * FROM usuario;',
-            (error, resultado, fields) => {
+            (error, result, fields) => {
                 if (error) { return res.status(200).send({ error: error }) }
-                return res.status(200).send({ response: resultado })
+                const response = {
+                    quantidade : result.length,
+                    produtos: result.map(prod => {
+                        return {
+                            id_usuario: prod.id,
+                            nome: prod.nome,
+                            senha: prod.senha,
+                            request: {
+                                tipo: 'GET',
+                                descricao: '',
+                                url: 'http://localhost:3200/produtos/' + prod.id
+                            }
+                        }
+                    }
+                    )
+                }
+                return res.status(200).send({ response})
             }
 
         )
@@ -43,9 +59,7 @@ router.post('/', (req, res, next) => {
             [req.body.id, req.body.nome, req.body.senha],
             (error, resultado, field) => {
                 conn.release();
-
                 if (error) { return res.status(500).send({ error: error }) }
-
                 res.status(200).send({
                     mensagem: 'Produto inserido',
                     produtoCriado: produto
@@ -53,10 +67,6 @@ router.post('/', (req, res, next) => {
             }
         )
     })
-
-
-
-
 });
 
 //RETORNA O PRODUTO ESPECIFICO
