@@ -112,7 +112,7 @@ router.patch('/', (req, res, next) => {
                 req.body.senha,
                 req.body.id_usuario
             ],
-            (error, resultado, field) => {
+            (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error})}
 
@@ -136,7 +136,7 @@ router.delete('/', ('/', (req, res, next) => {
         conn.query(
             `DELETE FROM usuario WHERE id = 
             ?`, [req.body.id_usuario],
-            (error, resultado, field) => {
+            (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error})}
 
