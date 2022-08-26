@@ -8,6 +8,7 @@ const upload = multer({ dest: 'uploads/'})
 
 
 
+
 router.get('/', (req, res, next) => {
     //res.status(200).send({
     //  mensagem : 'usando GET dentro de produtos'

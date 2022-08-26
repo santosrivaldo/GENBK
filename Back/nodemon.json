@@ -4,6 +4,10 @@
     "MYSQL_PASSWORD" : "Brasil@1402",
     "MYSQL_DATABASE" : "login",
     "MYSQL_HOST" : "187.64.1.90",
-    "MYSQL_PORT" : 3306
+    "MYSQL_PORT" : 3306,
+
+
+
+    "JWT_KEY": "segredo"
     }
 }
