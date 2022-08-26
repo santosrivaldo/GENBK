@@ -6,6 +6,7 @@ import {
 } from "react-router-dom"
 import LoginPage from './pages/login';
 import HomePage from './pages/home';
+import SigninPage from './pages/signin/signin';
 import { AuthProvider, AuthContext } from "./context/auth";
 import { useContext } from "react";
 
@@ -28,6 +29,7 @@ const AppRoutes = () => {
             <AuthProvider>
                 <Routes>
                     <Route exact path="/login" element={<LoginPage />} />
+                    <Route exact path="/signin" element={<SigninPage />} />
                     <Route exact path="/" element={<Private>
                         <HomePage />
                     </Private>} />

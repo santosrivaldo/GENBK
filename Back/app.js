@@ -9,20 +9,22 @@ const bodyParser = require('body-parser')
 
 
 const rotaProdutos = require('./routes/produtos')
+const rotaUsuarios = require('./routes/usuarios')
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended : false}));
-app.use(bodyParser.json());/*
+app.use(bodyParser.json());
 app.use((req, res, next) => {
     res.header('Acess-Control-Allow-Origin', '*');
     res.header(
         'Acces-Control-Allow-Header',
         'Origin, X-Requrested-With, Content-Type, Accept, Authezation'
     )
-}) */
+}) 
 
 
 app.use('/produtos', rotaProdutos);
+app.use('/usuarios', rotaUsuarios)
 
 app.use((req, res, next)=> {
     const erro = new Error('Não encontrado');
