@@ -20,7 +20,7 @@ const AppRoutes = () => {
         }
 
         if (!authenticated) {
-            return <Navigate to="/singin" />
+            return <Navigate to="/login" />
         }
         return children
     }

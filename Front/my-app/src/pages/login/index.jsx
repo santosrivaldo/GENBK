@@ -8,11 +8,11 @@ const LoginPage = () => {
    const { authenticated, login } = useContext(AuthContext)
 
    const [email, setEmail] = useState("")
-   const [password, setPassword] = useState("")
+   const [senha, setSenha] = useState("")
 
    const handleSubmit = (e) => {
       e.preventDefault()
-      login(email, password)
+      login(email, senha)
    }
 
    return (
@@ -27,9 +27,9 @@ const LoginPage = () => {
             </div>
             <div className="field">
                <label htmlFor="password">Senha</label>
-               <input type="password" name="password" id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)} />
+               <input type="senha" name="senha" id="senha"
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)} />
             </div>
             <button className="actions">Entrar</button>
          </form>
